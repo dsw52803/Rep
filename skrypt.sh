@@ -7,6 +7,9 @@ show_help() {
     echo "  -c ARGUMENT Perform action C with ARGUMENT"
     echo "  --date      Display today's date"
     echo "  --logs [N]  Create N log files"
+    echo "  -h          Display help"
+    echo "  -l          Display logs"
+    echo "  -d          Perform some other action"
 }
 
 action_a() {
@@ -34,6 +37,10 @@ create_logs() {
     done
 }
 
+perform_action_d() {
+    echo "Performing some other action"
+}
+
 while [[ $# -gt 0 ]]; do
     case $1 in
         -a )
@@ -53,9 +60,15 @@ while [[ $# -gt 0 ]]; do
             create_logs "$2"
             shift
             ;;
-        -h|--help )
+        -h )
             show_help
             exit 0
+            ;;
+        -l )
+            echo "Displaying logs"
+            ;;
+        -d )
+            perform_action_d
             ;;
         \? )
             echo "Invalid option: -$1" 1>&2
@@ -65,4 +78,3 @@ while [[ $# -gt 0 ]]; do
     esac
     shift
 done
-
