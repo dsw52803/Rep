@@ -10,6 +10,9 @@ show_help() {
     echo "  -h          Display help"
     echo "  -l          Display logs"
     echo "  -d          Perform some other action"
+    echo "  -h          Display help"
+    echo "  -l          Display logs"
+    echo "  -d          Perform some other action"
 }
 
 action_a() {
